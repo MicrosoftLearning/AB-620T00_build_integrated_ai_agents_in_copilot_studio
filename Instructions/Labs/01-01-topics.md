@@ -69,7 +69,7 @@ Topics are used when you need to:
 
 ## Before you start
 
-Open a new browser tab and navigate to `https://github.com/MicrosoftLearning/AB-620T00_build_integrated_ai_agents_in_copilot_studio/raw/main/allfiles/zava-sales-transaction/zava_sales_transactions.xlsx` to download the [Sales Transaction worksheet](https://github.com/MicrosoftLearning/AB-620T00_build_integrated_ai_agents_in_copilot_studio/raw/main/allfiles/zava-sales-transaction/zava_sales_transactions.xlsx) locally. This document contains details of the sales transactions for Zava Retail Group.
+Open a new browser tab and navigate to `https://github.com/MicrosoftLearning/AB-620T00_build_integrated_ai_agents_in_copilot_studio/blob/main/Allfiles/Zava-Sales-Transaction/zava_sales_transactions.xlsx` to download the [Sales Transaction worksheet](https://github.com/MicrosoftLearning/AB-620T00_build_integrated_ai_agents_in_copilot_studio/blob/main/Allfiles/Zava-Sales-Transaction/zava_sales_transactions.xlsx) locally. This document contains details of the sales transactions for Zava Retail Group.
 
 ## Exercise 1 - Create a Power Platform environment
 
@@ -189,17 +189,18 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
 
 1. In the *Start building by describing what your agent needs to do* text box, Enter the following prompt:
 
-   ```prompt
-   You are an agent that assists Zava Retail Group employees with store operations, warehouse insights, company policies, customer experience workflows, and service scenarios, including refund ticket creation, escalation notes, and return/exchange guidance.   
+   
+   ``` prompt
+   You are an agent that assists Zava Retail Group employees with store operations, warehouse insights, company policies, customer experience workflows, and service scenarios, including refund ticket creation, escalation notes, and return/exchange guidance.
    ```
-
+   
 1. Select the **Send** icon.
 
    Once your agent has been provisioned, you may proceed with configuring your agent.
 
 ### Task 2.2 – Configure agent details
 
-1. On the **Details** tile, select **Edit**.
+1. On the **Details** section, select **Edit**.
 
    ![Screenshot of editing agent details](media/details-edit.png)
 
@@ -207,25 +208,25 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
 
 1. In the **Description** field, enter the following text:
 
-   ```
+   ``` prompt
    Assists Zava Retail Group employees with store operations, warehouse insights, company policies, customer experience workflows, and service scenarios, including refund ticket creation, escalation notes, and return/exchange guidance.
    ```
+   > [!IMPORTANT]
+   > When you need to enter long strings or code segments, use the **Copy** option instead of **Type**, and then paste the text into the field in the user interface.
 
-    > **Important**: When you need to enter long strings or code segments, use the **Copy** option instead of **Type**, and then paste the text into the field in the user interface.
-
-1. On the **Details** tile, select **Save**.
+1. On the **Details** section, select **Save**.
 
 1. On the **Select your agent's model** tile, select **GPT-5 Chat**. Wait while Copilot Studio processes the request.
 
    ![Screenshot of agent model](media/agent-model.png)
 
-1. On the **Instructions** tile, select **Edit**.
+1. On the **Instructions** section, select **Edit**.
 
    ![Screenshot of agent instructions](media/instructions-edit.png)
 
 1. In the **Instructions** field, enter the following text as this text provides detailed guidance for the agent.
 
-   ```
+   ``` prompt
    You assist Zava Retail Group employees by providing fast, accurate, and policy‑aligned guidance for store operations and all customer‑resolution workflows. Your tone is professional, concise, accurate, and supportive.
 
    **Whenever a request involves refunds, returns, replacements, cancellations, or defective‑item issues, you must follow these steps without exception:**
@@ -288,6 +289,8 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
 
 1. In the upper-right of the **Settings** page, select **X** to close settings.
 
+1. In the dialog **Leave the page?**, select **Leave**.
+
 ### Task 2.4 – Agent response settings
 
 1. In the upper-right of the page, select the **Settings** button.
@@ -304,6 +307,8 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
 1. Select **Save**
 
 1. In the upper-right of the **Settings** page, select **X** to close settings.
+
+1. In the dialog **Leave the page?**, select **Leave**.
 
 ### Task 2.5 – Upload sales transactions as knowledge
 
@@ -348,6 +353,8 @@ Disabling unused topics helps reduce ambiguity when multiple topics or generativ
 
 1. Select the **Conversational boosting** topic.
 
+1. If a welcome dialog appears, select **Done**.
+
 1. Locate the **Create generative answers** node.
 
    ![Generative answers node.](media/generative-answers-node.png)
@@ -356,7 +363,7 @@ Disabling unused topics helps reduce ambiguity when multiple topics or generativ
 
    ![Generative answers node properties.](media/generative-answers-node-properties.png)
 
-1. In the **Create generative answers properties** pane, locate the **Classic data** section.
+1. In the **Create generative answers properties** pane, locate and expand the **Classic data** section.
 
 1. Verify that **Allow the AI to use its own general knowledge (preview)** is disabled.
 
@@ -396,7 +403,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
    ![Screenshot of referencing the topic in the agent instructions.](media/add-topic-to-instructions-2.jpg)
 
-1. On the **Instructions** tile, select **Save**.
+1. On the **Instructions** section, select **Save**.
 
    ![Screenshot of save](media/instructions-save.jpg)
 
@@ -420,13 +427,14 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
    ![Generative answers node input](media/generative-answers-node-input.png)
 
-    > **Note**: The **Missing required property 'UserInput' message** should no longer be visible.
+   > [!NOTE]
+   > The **Missing required property 'UserInput' message** should no longer be visible.
 
 1. At the top right of the node, select the ellipses (**...**) and then select **Properties**.
 
 1. In the **Create generative answers properties** pane, in the **Knowledge sources** section, set **Search only selected sources** to **On**.
 
-1. In the list of knowledge sources, select **Zava Sales Transactions**.
+1. In the list of knowledge sources, select **Zava Sales Transactions** file.
 
    ![Generative answers node knowledge settings](media/generative-answers-node-knowledge.png)
 
@@ -436,7 +444,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
 1. In the text field below the **content moderation level** field, enter the following text:
 
-   ```
+   ``` prompt
    Below is the customer's message:
    Activity.Text
 
@@ -456,7 +464,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
 1. In the **Save bot response as** field, select **Select a variable**.
 
-1. Select **Create new**.
+1. Select **Create a new variable**.
 
 1. In the **Save bot response as** field, select **Var1**.
 
