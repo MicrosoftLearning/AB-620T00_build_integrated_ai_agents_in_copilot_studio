@@ -17,7 +17,7 @@ lab:
 
 Zava Retail Group is a global retail company operating in brick-and-mortar stores and a rapidly expanding e-commerce platform. To accelerate digital transformation, Zava established an AI Center of Excellence (COE) tasked with identifying high-impact, agentic AI opportunities that improve operational efficiency, employee productivity, and strategic decision-making.
 
-Zava operates in a hybrid cloud environment-Azure for productivity and analytics, AWS for certain legacy workloads, and SAP for supply chain and inventory. They rely on Microsoft 365, Teams, SharePoint, Azure DevOps (ADO), and a mix of third-party and custom systems.
+Zava operates in a hybrid cloud environment—Azure for productivity and analytics, AWS for certain legacy workloads, and SAP for supply chain and inventory. They rely on Microsoft 365, Teams, SharePoint, Azure DevOps (ADO), and a mix of third-party and custom systems.
 
 However, the COE faces pressure: Google and AWS teams are actively proposing AI solutions, and Zava’s leadership wants to quickly identify a strategic partner with security, governance, extensibility, and enterprise-grade readiness.
 
@@ -69,7 +69,7 @@ Topics are used when you need to:
 
 ## Before you start
 
-Open a new browser tab and navigate to `https://github.com/MicrosoftLearning/AB-620T00_build_integrated_ai_agents_in_copilot_studio/raw/main/allfiles/zava-sales-transaction/zava_sales_transactions.xlsx` to download the [Sales Transaction worksheet](https://github.com/MicrosoftLearning/AB-620T00_build_integrated_ai_agents_in_copilot_studio/raw/main/allfiles/zava-sales-transaction/zava_sales_transactions.xlsx) locally. This document contains details of the sales transactions for Zava Retail Group.
+Open a new browser tab and navigate to `https://github.com/MicrosoftLearning/AB-620T00_build_integrated_ai_agents_in_copilot_studio/blob/main/Allfiles/Zava-Sales-Transaction/zava_sales_transactions.xlsx` to download the [Sales Transaction worksheet](https://github.com/MicrosoftLearning/AB-620T00_build_integrated_ai_agents_in_copilot_studio/blob/main/Allfiles/Zava-Sales-Transaction/zava_sales_transactions.xlsx) locally. This document contains details of the sales transactions for Zava Retail Group.
 
 ## Exercise 1 - Create a Power Platform environment
 
@@ -119,7 +119,7 @@ Before you start the lab exercises, you must create a development environment fo
 
 1. In a new browser tab, navigate to `https://copilotstudio.microsoft.com/` and sign in if prompted.
 
-1. Select **Get Started**, if prompted leaving the default country/region.
+1. Select **Get Started**. If prompted, leave the default country/region.
 
 1. Skip any welcome messages.
 
@@ -131,7 +131,7 @@ Before you start the lab exercises, you must create a development environment fo
 
 1. In the left navigation pane, select the ellipses (**...**), and select **Solutions**.
 
-1. You should see several solutions including the *Default Solution* and the *Common Data Services Default Solution*.
+1. You should see several solutions, including the *Default Solution* and the *Common Data Services Default Solution*.
 
    ![List of solutions in Maker portal.](media/solutions-list.png)
 
@@ -187,19 +187,20 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
 
 1. Select **Update**.
 
-1. In the *Start building by describing what your agent needs to do* text box, Enter the following prompt:
+1. In the *Start building by describing what your agent needs to do* text box, enter the following prompt:
 
-   ```prompt
-   You are an agent that assists Zava Retail Group employees with store operations, warehouse insights, company policies, customer experience workflows, and service scenarios, including refund ticket creation, escalation notes, and return/exchange guidance.   
+   
+   ``` prompt
+   You are an agent that assists Zava Retail Group employees with store operations, warehouse insights, company policies, customer experience workflows, and service scenarios, including refund ticket creation, escalation notes, and return/exchange guidance.
    ```
-
+   
 1. Select the **Send** icon.
 
    Once your agent has been provisioned, you may proceed with configuring your agent.
 
 ### Task 2.2 – Configure agent details
 
-1. On the **Details** tile, select **Edit**.
+1. On the **Details** section, select **Edit**.
 
    ![Screenshot of editing agent details](media/details-edit.png)
 
@@ -207,25 +208,25 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
 
 1. In the **Description** field, enter the following text:
 
-   ```
+   ``` prompt
    Assists Zava Retail Group employees with store operations, warehouse insights, company policies, customer experience workflows, and service scenarios, including refund ticket creation, escalation notes, and return/exchange guidance.
    ```
+   > [!IMPORTANT]
+   > When you need to enter long strings or code segments, use the **Copy** option instead of **Type**, and then paste the text into the field in the user interface.
 
-    > **Important**: When you need to enter long strings or code segments, use the **Copy** option instead of **Type**, and then paste the text into the field in the user interface.
-
-1. On the **Details** tile, select **Save**.
+1. On the **Details** section, select **Save**.
 
 1. On the **Select your agent's model** tile, select **GPT-5 Chat**. Wait while Copilot Studio processes the request.
 
    ![Screenshot of agent model](media/agent-model.png)
 
-1. On the **Instructions** tile, select **Edit**.
+1. On the **Instructions** section, select **Edit**.
 
    ![Screenshot of agent instructions](media/instructions-edit.png)
 
 1. In the **Instructions** field, enter the following text as this text provides detailed guidance for the agent.
 
-   ```
+   ``` prompt
    You assist Zava Retail Group employees by providing fast, accurate, and policy‑aligned guidance for store operations and all customer‑resolution workflows. Your tone is professional, concise, accurate, and supportive.
 
    **Whenever a request involves refunds, returns, replacements, cancellations, or defective‑item issues, you must follow these steps without exception:**
@@ -260,7 +261,7 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
 
 1. Scroll up to the top of the instructions panel, and locate **Step 2** in the text that you just pasted.
 
-1. Highlight and delete **[current date]**, then enter **/** From the list of suggestions, select **Power FX**.
+1. Highlight and delete **[current date]**, then enter `/`. From the list of suggestions, select **Power FX**.
 
    ![Screenshot of inserting a formula into the agent instructions](media/instructions-add-formula.jpg)
 
@@ -288,6 +289,8 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
 
 1. In the upper-right of the **Settings** page, select **X** to close settings.
 
+1. In the dialog **Leave the page?**, select **Leave**.
+
 ### Task 2.4 – Agent response settings
 
 1. In the upper-right of the page, select the **Settings** button.
@@ -299,11 +302,13 @@ In this exercise, you’ll create the Zava Retail Help Desk Agent and configure 
    - For order data-related answers respond with bullet points.
    ```
 
-   ![Screenshot of response  settings](media/response-settings.png)
+   ![Screenshot of response settings](media/response-settings.png)
 
 1. Select **Save**
 
 1. In the upper-right of the **Settings** page, select **X** to close settings.
+
+1. In the dialog **Leave the page?**, select **Leave**.
 
 ### Task 2.5 – Upload sales transactions as knowledge
 
@@ -348,6 +353,8 @@ Disabling unused topics helps reduce ambiguity when multiple topics or generativ
 
 1. Select the **Conversational boosting** topic.
 
+1. If a welcome dialog appears, select **Done**.
+
 1. Locate the **Create generative answers** node.
 
    ![Generative answers node.](media/generative-answers-node.png)
@@ -356,7 +363,7 @@ Disabling unused topics helps reduce ambiguity when multiple topics or generativ
 
    ![Generative answers node properties.](media/generative-answers-node-properties.png)
 
-1. In the **Create generative answers properties** pane, locate the **Classic data** section.
+1. In the **Create generative answers properties** pane, locate and expand the **Classic data** section.
 
 1. Verify that **Allow the AI to use its own general knowledge (preview)** is disabled.
 
@@ -396,7 +403,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
    ![Screenshot of referencing the topic in the agent instructions.](media/add-topic-to-instructions-2.jpg)
 
-1. On the **Instructions** tile, select **Save**.
+1. On the **Instructions** section, select **Save**.
 
    ![Screenshot of save](media/instructions-save.jpg)
 
@@ -404,7 +411,9 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
 1. On the command bar for the agent, select **Topics** and then select **refund-initiator**.
 
-1. If a message node has been added to the topic, at the top right of the node, select the ellipses (**…**), then select **Delete**.
+1. If a **Message** node has been added to the topic, at the top right of the node, select the ellipses (**…**), then select **Delete**.
+
+1. If a **Question** node has been added to the topic, at the top right of the node, select the ellipses (**…**), then select **Delete**.
 
 1. Below the **Trigger** node, select **Add node** (the **+** sign) and then select **Advanced**. Select **Generative answers**.
 
@@ -416,17 +425,18 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
    ![Generative answers node title](media/generative-answers-node-title.png)
 
-1. In the **Input** field, select the ellipses (**...**), select **System** tab, and then select `Activity.Text`.
+1. In the **Input** field, select the ellipses (**...**), select the **System** tab, and then select `Activity.Text`.
 
    ![Generative answers node input](media/generative-answers-node-input.png)
 
-    > **Note**: The **Missing required property 'UserInput' message** should no longer be visible.
+   > [!NOTE]
+   > The **Missing required property 'UserInput' message** should no longer be visible.
 
 1. At the top right of the node, select the ellipses (**...**) and then select **Properties**.
 
 1. In the **Create generative answers properties** pane, in the **Knowledge sources** section, set **Search only selected sources** to **On**.
 
-1. In the list of knowledge sources, select **Zava Sales Transactions**.
+1. In the list of knowledge sources, select the **Zava Sales Transactions** file.
 
    ![Generative answers node knowledge settings](media/generative-answers-node-knowledge.png)
 
@@ -436,7 +446,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
 1. In the text field below the **content moderation level** field, enter the following text:
 
-   ```
+   ``` prompt
    Below is the customer's message:
    Activity.Text
 
@@ -456,7 +466,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
 1. In the **Save bot response as** field, select **Select a variable**.
 
-1. Select **Create new**.
+1. Select **Create a new variable**.
 
 1. In the **Save bot response as** field, select **Var1**.
 
@@ -470,7 +480,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
    ![Screenshot of adding a node.](media/add-message-node.png)
 
-1. In the text field for the **Message** node, select **Insert variable** (**{X}**), select **System** tab and then select `Activity.value`.
+1. In the text field for the **Message** node, select **Insert variable** (**{X}**), select the **System** tab, and then select `Activity.value`.
 
    ![Screenshot of adding variable to a message node.](media/message-node-value.png)
 
@@ -484,7 +494,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
 1. Submit the following prompt:
 
-   ```
+   ``` prompt
    How can I request a refund for order TXN‑2008, which I no longer need?
    ```
 
@@ -494,7 +504,7 @@ In this exercise, you'll build the **refund-initiator** topic as a reusable work
 
 ### Task 4.4 – Add an adaptive card node
 
-In addition to adding updating existing nodes, you can use Copilot to add new ones.
+In addition to adding and updating existing nodes, you can use Copilot to add new ones.
 
 1. On the command bar for the agent, select **Topics** and then select **refund-initiator**.
 
@@ -508,47 +518,71 @@ In addition to adding updating existing nodes, you can use Copilot to add new on
 
 1. In the **Edit with Copilot** pane, in the **What do you want to do?** field, enter the following text:
 
-   `Ask the user to confirm the refund with an adaptive card. If the adaptive card response is Yes then add a message node confirming refund. If the adaptive card response is no then  End all topics`
+   `Ask the user to confirm the refund with an adaptive card. If the adaptive card response is Yes, then add a message node confirming the refund. If the adaptive card response is No, then end all topics.`
 
 1. Select **Update**.
 
-   An Ask with an Adaptive Card node is added to the end of the topic.
+   A Message node with a Media Adaptive Card is added to the end of the topic.
 
    ![Screenshot of the ask with adaptive card node .](media/ask-adaptive-card-node.png)
 
-1. In the text field for the **Message** node, select **Insert variable** (**{X}**), select **Custom** tab and then select `varGenerateAIResponse`.
+1. If Copilot generates a **Question** node or a **Message** node, at the top right of the node, select the ellipses (**…**), and then select **Delete**.
 
-1. Select the **Media** box in the Adaptive Card. The Adaptive Card properties should appear on the right of the page.
+1. Select the **Add node** (the **+** sign) below the **Message node** that contains the variable Activity.Value, and then select **Ask with Adaptive card** node.
+
+1. Select the **Media** box in the Adaptive Card. The **Adaptive Card Node properties** should appear on the right of the page.
 
    ![Screenshot of the Adaptive Card properties.](media/adaptive-card-properties.png)
 
+1. Change the **Format** from **JSON** to **Formula**.
+
 1. Your Adaptive Card formula should look similar to the one above. If it doesn't, then you can paste in the formula below:
 
-   ```powerfx
-   {
-   type: "AdaptiveCard", 
-       body: 
-       [
-           {
-               type: "TextBlock",
-               size: "Medium",
-               weight: "Bolder",
-               text: "Refund Confirmation"
-           },
-           {
-               type: "TextBlock",
-               text: "Do you want to process a refund for your order?"
-           },
-           { type: "ActionSet", actions: [
-                { type: "Action.Submit", title: "Yes", data: { confirmRefund: true }
-                },
-                { type: "Action.Submit", title: "No", data: { confirmRefund: false }
-                }
-                ]
+    ```powerfx
+    {
+        type: "AdaptiveCard",
+        version: "1.0",
+        body: [
+            {
+                type: "TextBlock",
+                size: "Medium",
+                weight: "Bolder",
+                text: "Refund Confirmation"
+            },
+            {
+                type: "TextBlock",
+                text: "Do you want to process a refund for your order?"
             }
-       ]
-   }
-   ```
+        ],
+        actions: [
+            {
+                type: "Action.Submit",
+                title: "Yes",
+                data: { RefundConfirmation: "Yes" }
+            },
+            {
+                type: "Action.Submit",
+                title: "No",
+                data: { RefundConfirmation: "No" }
+            }
+        ]
+    }
+    ```
+
+1. Select **Edit schema**, and then paste the following schema:
+
+```
+    kind: Record
+    properties:
+        RefundConfirmation:
+            type: String
+```
+
+1. Select **Confirm**.
+
+1. Select the **Condition** node and change the value from **true** to **Yes**.
+
+1. Select the **Add node** (the **+** sign) below the **Message** node, and then select **Topic management** > **End all topics**. Do the same for the **No** branch of the condition.
 
 1. On the command bar for the topic, select **Save**.
 
@@ -572,7 +606,7 @@ Enable variables to be accessed by other topics.
 
 1. Select **Global**.
 
-1. select **X** to close the variable pane.
+1. Select **X** to close the variable pane.
 
 1. Select **Save**.
 
@@ -590,11 +624,11 @@ In this exercise, you will test topic routing and confirm the conversation follo
 
 1. At the top of the **Test pane**, select the **Start new test session** icon **+**.
 
-1. When the **Conversation Start** message appears, your agent will start a conversation. In response, enter the following prompt:
+1. When the **Conversation Start** message appears, your agent starts a conversation. In response, enter the following prompt:
 
    `Provide a list of transaction ids and products for loyalty id ZAVA-10100`
 
-1. The agent should respond with the a list of three orders.
+1. The agent should respond with a list of three orders.
 
    ![Screenshot of the Conversation.](media/topic-conversation-1.png)
 
@@ -602,7 +636,7 @@ In this exercise, you will test topic routing and confirm the conversation follo
 
    `Start a refund for TXN-2036`
 
-1. Confirm `Yes` to the adaptive cared.
+1. Confirm `Yes` to the adaptive card.
 
    The agent responds with a confirmation message indicating the refund process has been submitted.
 
@@ -610,4 +644,4 @@ In this exercise, you will test topic routing and confirm the conversation follo
 
 ## Summary
 
-In this lab, you created the Cthe refund-initiator topis and used nodes to enforce a structured, step-by-step interaction while generative AI remained enabled. You also configured variable scope so information collected can be used across topics.
+In this lab, you created the refund-initiator topic and used nodes to enforce a structured, step-by-step interaction while generative AI remained enabled. You also configured variable scope so information collected can be used across topics.
