@@ -1,0 +1,8 @@
+Order ID,Customer email,Customer name,Order date,SKU,Product name,Total,Status,Ship to
+9876,priya@contoso.com,Priya N.,2026-08-14,BLD-100,Countertop Blender (700W),129.99,Delivered,"742 Evergreen Ter, Springfield"
+9820,priya@contoso.com,Priya N.,2026-05-02,BLD-050,Immersion Blender,49.99,Delivered,"742 Evergreen Ter, Springfield"
+9901,alex@contoso.com,Alex Morgan,2026-08-20,HDN-200,Wireless Headphones,89.00,Delivered,"18 Bay St, Portland"
+9902,jordan@contoso.com,Jordan Kim,2026-08-22,MXR-300,Stand Mixer,349.00,Delivered,"501 Oak Ave, Denver"
+9903,sam@contoso.com,Sam Patel,2026-08-25,TST-050,4-Slice Toaster,59.00,Delivered,"9 Palm St, Miami"
+9904,rae@contoso.com,Rae Johansson,2026-08-27,BLD-100,Countertop Blender (700W),129.99,In transit,"33 Elm St, Boston"
+9905,priya@contoso.com,Priya N.,2026-08-29,ATT-ICE,Ice Cream Attachment (Stand Mixer),59.00,Delivered,"742 Evergreen Ter, Springfield"
