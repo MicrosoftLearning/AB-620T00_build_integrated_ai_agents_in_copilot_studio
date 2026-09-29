@@ -1,6 +1,0 @@
-customer_email,customer_name,preferred_channel,loyalty_tier,notes
-priya@contoso.com,Priya N.,Email,Gold,"Repeat customer. Prior blender return in Q1 (BLD-050). Prefers written follow-up."
-alex@contoso.com,Alex Morgan,Phone,Silver,"Reachable weekday evenings. Cares about resolution speed."
-jordan@contoso.com,Jordan Kim,Email,Silver,"Business account; requests invoice with every ticket."
-sam@contoso.com,Sam Patel,SMS,Bronze,"Prefers short answers. New customer."
-rae@contoso.com,Rae Johansson,Email,Gold,"Frequent gifter; sensitive to delivery delays around holidays."
