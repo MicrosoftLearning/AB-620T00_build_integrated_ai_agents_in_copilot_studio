@@ -26,7 +26,7 @@ This exercise should take approximately **20** minutes to complete.
 
 ## Before you start
 
-This exercise assumes you have a **Customer Support Rep Assistant** agent with two Dataverse tables available: **Orders** (with a row for order 9876) and **Customer Records** (with a row for `priya@contoso.com`). To reach this starting state, complete Lab 2, including [Exercise 0 — Set up the Dataverse tables](../lab-2-add-workflows-to-agent/exercise-0-setup.md).
+This exercise assumes you have a **Customer Support Rep Assistant** agent with two Dataverse tables available: **Orders** (with a row for order 9876) and **Customer Records** (with a row for `priya@contoso.com`). To reach this starting state, complete Lab 2, including [Exercise 0 — Import the Dataverse tables and sample data](../lab-2-add-workflows-to-agent/exercise-0-setup.md).
 
 > [!NOTE]
 > Task 4 uses Copilot Credits.

@@ -26,7 +26,7 @@ This exercise should take approximately **35** minutes to complete.
 
 ## Before you start
 
-This exercise assumes you have a **Customer Support Rep Assistant** agent with instructions, skills, memory, and safety configured, plus an empty **Returns** Dataverse table in the preferred solution. To reach this starting state, complete [Lab 1](../lab-1-design-and-configure-agent/exercise-1-create-environment.md) and [Exercise 0 — Set up the Dataverse tables](exercise-0-setup.md).
+This exercise assumes you have a **Customer Support Rep Assistant** agent with instructions, skills, memory, and safety configured, plus an empty **Returns** Dataverse table in the preferred solution. To reach this starting state, complete [Lab 1](../lab-1-design-and-configure-agent/exercise-1-create-environment.md) and [Exercise 0 — Import the Dataverse tables and sample data](exercise-0-setup.md).
 
 > [!NOTE]
 > Task 9 uses Copilot Credits.

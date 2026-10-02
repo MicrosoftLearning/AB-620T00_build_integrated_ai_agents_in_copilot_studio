@@ -2,12 +2,12 @@
 
 This folder contains the sample data that the labs use. The rows support the **Priya, order 9876, and SKU BLD-100** storyline that the test prompts follow from Lab 2 through Lab 5.
 
-You import these files in [Lab 2, Exercise 0 — Set up the Dataverse tables](../../Instructions/Labs/lab-2-add-workflows-to-agent/exercise-0-setup.md). The column headings in each CSV file match the display names of the Dataverse columns you create in that exercise, so the columns map automatically when you import.
+You import these files in [Lab 2, Exercise 0 — Import the Dataverse tables and sample data](../../Instructions/Labs/lab-2-add-workflows-to-agent/exercise-0-setup.md). The additive solution ZIP supplies the four table definitions, not their records. Check for existing records before importing the CSVs, and confirm the column mappings match the table display names.
 
 ## Files
 
 | File | Dataverse table | Primary column | Used in |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `orders.csv` | Orders | Order ID | Lab 3 (Orders tool), Lab 4 (order 9876 lookup), Lab 5 (evaluation) |
 | `customer-records.csv` | Customer Records | Customer email | Lab 3 (Customer Records tool) |
 | `products.csv` | Products | SKU | Lab 4 (Fulfillment agent Products tool) |

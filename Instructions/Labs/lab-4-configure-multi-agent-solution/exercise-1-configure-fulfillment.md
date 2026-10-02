@@ -25,7 +25,7 @@ This exercise should take approximately **20** minutes to complete.
 
 ## Before you start
 
-This exercise assumes you have the **Customer Support Rep Assistant** orchestrator in your preferred solution, plus the **Products** Dataverse table with its sample data. To reach this starting state, complete [Lab 3](../lab-3-integrate-knowledge-and-tools/exercise-1-ground-in-dataverse.md). You created and populated the **Products** table in [Lab 2, Exercise 0 — Set up the Dataverse tables](../lab-2-add-workflows-to-agent/exercise-0-setup.md).
+This exercise assumes you have the **Customer Support Rep Assistant** orchestrator in your preferred solution, plus the **Products** Dataverse table with its sample data. To reach this starting state, complete [Lab 3](../lab-3-integrate-knowledge-and-tools/exercise-1-ground-in-dataverse.md). You imported the **Products** table definition and its sample data in [Lab 2, Exercise 0 — Import the Dataverse tables and sample data](../lab-2-add-workflows-to-agent/exercise-0-setup.md).
 
 ## Task 1 — Create the Fulfillment agent
 
