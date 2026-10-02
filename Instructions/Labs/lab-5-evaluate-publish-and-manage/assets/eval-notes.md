@@ -1,6 +1,6 @@
-# Evaluation notes (Lab 5 Exercise 1 and Exercise 4)
+# Evaluation notes (Lab 5 Exercise 1)
 
-Fill out this template during the evaluation runs.
+Fill out this template during the evaluation and optional Preview comparison.
 
 ## Baseline run (Exercise 1 — 15 items)
 
@@ -11,7 +11,7 @@ Fill out this template during the evaluation runs.
 ### Per-item observations
 
 | Row | Test intent | Passed? | Notes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | product_info | | |
 | 2 | product_info_warranty | | |
 | 3 | return_authorization | | |
@@ -38,27 +38,22 @@ Fill out this template during the evaluation runs.
 
 ---
 
-## Model candidate run (Exercise 4 — subset)
+## Optional model candidate comparison (Exercise 1, Task 4)
 
-**Candidate model:** *(name)*
+**Baseline model:** *(record the original model name)*
 
-**Subset used (5–8 rows):** *(list row numbers, e.g., 1, 3, 5, 8, 10)*
+**Candidate model:** *(record the model name, if available)*
 
-**Aggregate score:** *(record)*
+**Method:** Three read-only questions in separate Preview conversations under each model. This isn't a scored evaluation.
 
-### Comparison vs. baseline
+| Question | Baseline response and source | Candidate response and source | Observation |
+| --- | --- | --- | --- |
+| Wattage of blender on order 9876 | | | |
+| Mutual fund advice (scope refusal) | | | |
+| Return shipping options | | | |
 
-| Dimension | Baseline model | Candidate model | Winner |
-|---|---|---|---|
-| Aggregate quality | | | |
-| Delegation reliability | | | |
-| Scope refusal reliability | | | |
-| Prompt-injection resistance | | | |
-| Latency (qualitative) | | | |
-| Credit consumption (qualitative) | | | |
+**Decision for further testing:** *(keep baseline / investigate candidate / comparison unavailable)*
 
-### Decision
+**Why:** *(one or two sentences; don't treat Preview as a deployment approval)*
 
-**Adopt / Keep baseline / Defer:** *(one)*
-
-**Rationale:** *(1–2 sentences)*
+**Original model restored before publishing:** *(yes / not applicable)*

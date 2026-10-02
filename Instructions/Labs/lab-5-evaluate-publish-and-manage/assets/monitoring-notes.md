@@ -13,7 +13,7 @@ Fill out this template while you review analytics, Copilot Credits, and transcri
 ## Copilot Credits burn
 
 | Exercise | Planned profile | Actual | Delta |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Lab 1 Ex 3 (instruction validation) | Moderate | | |
 | Lab 1 Ex 4 (skill test) | Low | | |
 | Lab 2 Ex 1 (return workflow test) | Moderate | | |
@@ -23,8 +23,8 @@ Fill out this template while you review analytics, Copilot Credits, and transcri
 | Lab 3 Ex 3 (multi-tool test) | High | | |
 | Lab 4 Ex 3 (multi-agent handoff test) | Moderate | | |
 | Lab 5 Ex 1 (evaluation, 15 items) | Very High | | |
+| Lab 5 Ex 1 (optional candidate Preview comparison) | Moderate | | |
 | Lab 5 Ex 2 (publish and deploy smoke test) | Moderate | | |
-| Lab 5 Ex 4 (model candidate subset) | Very High | | |
 
 **Hardening TODOs:** *(list any exercises materially over plan)*
 

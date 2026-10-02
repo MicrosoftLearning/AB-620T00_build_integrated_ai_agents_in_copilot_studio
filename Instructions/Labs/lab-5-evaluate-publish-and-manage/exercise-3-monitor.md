@@ -50,9 +50,9 @@ Copilot Credits track the metered cost of every agent turn, tool invocation, and
 1. Review **Total estimated credits used** for the Customer Support Rep Assistant. The value is an estimate and may lag behind your most recent test conversations.
 
 1. Note what the card shows:
- 
-- If a total appears, record it. A category breakdown may or may not be shown — if the card states that a breakdown isn't available for this agent, the total alone is enough.
-- If the card shows **No credits used**, record that no usage was reported for the selected period and continue.
+
+    - If a total appears, record it. A category breakdown may or may not be shown — if the card states that a breakdown isn't available for this agent, the total alone is enough.
+    - If the card shows **No credits used**, record that no usage was reported for the selected period and continue.
 
 1. If you have access to an environment-level capacity report, optionally compare its aggregate Copilot Credits usage for the same date range. Reporting data can be delayed and can include activity from other agents or users.
 
@@ -72,4 +72,4 @@ Transcripts are the ground-truth record of what actually happened in each conver
 
 1. Log observations in `assets/monitoring-notes.md` for delivery of continuous-improvement guidance.
 
-You've toured the three surfaces Copilot Studio provides for tracking a published agent — aggregate KPIs on the Monitor dashboard, credit consumption reconciled against your per-exercise expectations, and transcripts that show what actually happened turn by turn. In the next exercise, you close with ALM — environment variables and Power Platform Pipelines — plus one final candidate-model evaluation.
+You've completed Lab 5 by evaluating, publishing, and monitoring the Customer Support Rep Assistant. You reviewed aggregate KPIs, estimated Copilot Credits, and transcripts to identify where the agent needs improvement.
