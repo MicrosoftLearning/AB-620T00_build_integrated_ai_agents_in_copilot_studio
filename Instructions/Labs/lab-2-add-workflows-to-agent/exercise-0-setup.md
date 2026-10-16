@@ -1,12 +1,12 @@
 ---
 lab:
-    title: '2.0: Import the Dataverse tables and sample data'
-    description: Import four Dataverse table definitions into your existing agent environment, then import the sample records used in the remaining labs.
-    duration: 30 minutes
-  level: 300
-  islab: true
-  primarytopics:
-    - Microsoft Copilot Studio
+   title: '2.0: Import the Dataverse tables and sample data'
+   description: Import four Dataverse table definitions into your existing agent environment, then import the sample records used in the remaining labs.
+   duration: 30 minutes
+   level: 300
+   islab: true
+   primarytopics:
+     - Microsoft Copilot Studio
 ---
 
 # Import the Dataverse tables and sample data
@@ -75,7 +75,7 @@ Import the sample rows into the existing Orders, Customer Records, and Products 
 
 1. Open the **Orders** table and check whether order **9876** for `priya@contoso.com` is already present. Check **Customer Records** for `priya@contoso.com` and **Products** for SKU **BLD-100**. If a table has only *some* sample rows, ask your instructor before importing the whole file so you don't create duplicates.
 
-1. For any table missing **all** its sample rows, open the matching table and select **Import** > **Import data from Excel**. If prompted to select a table, select the existing table and then **Next**. If this command isn't available, in Power Apps select **Tables** > **Import** > **Import data** > **Text/CSV** and choose the same existing table.
+1. For any table missing **all** its sample rows, open the matching table and select **Import** > **Import data from Excel**. If prompted to select a table, select the existing table and then **Next**. If this command isn't available, in Power Apps select **Tables** > **Import** > **Import data with Dataflows** > **Text/CSV** and choose the same existing table.
 
 1. Select **Upload** and select the matching CSV that you downloaded in Task 1: `orders.csv` for **Orders**, `customer-records.csv` for **Customer Records**, or `products.csv` for **Products**.
 

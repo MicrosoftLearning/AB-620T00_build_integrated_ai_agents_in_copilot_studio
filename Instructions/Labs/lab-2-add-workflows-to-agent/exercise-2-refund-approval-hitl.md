@@ -61,12 +61,13 @@ Define the three trigger inputs the agent supplies at call time — the authoriz
 
 Before you update anything, look up the Returns row by authorization number so later steps have the row ID to update.
 
-1. Add a **Microsoft Dataverse → List rows** action after the **When an agent calls the workflow** node.
+1. Add a **Microsoft Dataverse → List rows from selected environment** action after the **When an agent calls the workflow** node.
 
-1. On the **List rows** action, configure:
+1. On the **List rows from selected environment** action, configure:
 
     | Field | Value |
     |---|---|
+    | Environment | Select your environment from the dropdown. |
     | Table name | Returns |
     | Filter rows | `sup_authorizationnumber eq '` then dynamic content **authorizationNumber** then `'`. (Use the expression editor if the filter builder doesn't accept mixed content.) |
     | Row count | `1` |
@@ -75,7 +76,7 @@ Before you update anything, look up the Returns row by authorization number so l
 
 Add a Condition action that branches on the requested refund amount. Refunds up to $100 auto-approve; above $100 route to a supervisor.
 
-1. Add an **If/Else** condition action after **List rows**.
+1. Add an **If/Else** condition action after **List rows from selected environment**.
 
 1. Configure the condition with **requestedAmount** (dynamic content) as the **Property**, **Greater** as the **Operator**, and `100` as the **Value**.
 
@@ -103,11 +104,11 @@ In the **If** branch:
 
 1. After the approval action, add a **Switch** on the approval's **Outcome** output. In the **On** field, select **Outcome** from the Start and wait for an approval action, then configure:
 
-    - **Approve** → **Update a row** (Microsoft Dataverse) with `Status = Approved`, `Expected refund = requestedAmount`, `Approved by = supervisorEmail`.
-    - **Reject** → **Update a row** (Microsoft Dataverse) with `Status = Rejected`, `Expected refund = 0`.
-    - **Default** (timeout or other outcome) → **Update a row** (Microsoft Dataverse) with `Status = Escalated`.
+    - **Approve** → **Update a row in selected environment** (Microsoft Dataverse) with `Status = Approved`, `Expected refund = requestedAmount`, `Approved by = supervisorEmail`.
+    - **Reject** → **Update a row in selected environment** (Microsoft Dataverse) with `Status = Rejected`, `Expected refund = 0`.
+    - **Default** (timeout or other outcome) → **Update a row in selected environment** (Microsoft Dataverse) with `Status = Escalated`.
 
-    In each case, use a **Microsoft Dataverse → Update a row** action targeting the **Returns** table, with **Row ID** set to the first row's ID from the **List rows** step.
+    In each case, use a **Microsoft Dataverse → Update a row in selected environment** action targeting the **Returns** table, with **Row ID** set to the first row's ID from the **List rows from selected environment** step.
 
 ## Task 6 — Below-threshold branch: auto-approve
 
@@ -115,12 +116,13 @@ Configure the below-threshold branch. When the requested amount is at or below t
 
 In the **Else** branch:
 
-1. Add a **Microsoft Dataverse → Update a row** action targeting the **Returns** table.
+1. Add a **Microsoft Dataverse → Update a row in selected environment** action targeting the **Returns** table.
 
 1. Configure:
 
     | Field | Value |
     |---|---|
+    | Environment | Select your environment from the dropdown. |
     | Row ID | First row from **List rows**. |
     | Status | `Approved` |
     | Expected refund | Dynamic content: **requestedAmount**. |
@@ -173,25 +175,7 @@ Test both branches through the agent's **Preview** tab, starting with the above-
 > This task uses Copilot Credits.
 
 > [!NOTE]
-> When testing from the agent's **Preview** tab, Dataverse actions might return **401 Unauthorized**, or **Start and wait for an approval** might return **HTTP 504**. If either issue occurs, use **Dataverse MCP Server** to update the matching **Returns** row and configure the workflow as follows:
->
-> ```text
-> When an agent calls the workflow
-> └── If requestedAmount is greater than 100
->     ├── If
->     │   ├── Create an approval
->     │   └── Respond to the agent: Pending
->     └── Else
->         └── Respond to the agent: Approved
-> ```
->
-> Both **Respond to the agent** actions must use the same output schema:
->
-> - `outcome`: Text
-> - `finalRefundAmount`: Number
-> - `notes`: Text
->
-> Update the agent instructions to call the workflow and then use **Dataverse MCP Server** to update the matching row to **Pending** for above-threshold requests or **Approved** for below-threshold requests.
+> The confirmation email is sent to whatever value the rep provides for `customerEmail`. For this test, use your own tenant email address so you can see the message arrive.
 
 1. Note the authorization number from an existing Returns row (the one you created in the previous exercise's Preview test).
 

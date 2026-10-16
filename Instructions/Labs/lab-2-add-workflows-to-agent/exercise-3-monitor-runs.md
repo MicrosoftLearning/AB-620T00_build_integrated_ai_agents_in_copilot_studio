@@ -42,7 +42,7 @@ Open the return-authorization flow's run history and walk through a successful r
 
 1. Review each step:
     - **When an agent calls the workflow** — the four input values the agent passed in.
-    - **Add a new row** — the exact Dataverse payload written.
+    - **Add a new row to selected environment** — the exact Dataverse payload written.
     - **Send an email** — the message body and recipient.
     - **Respond to the agent** — the outputs returned.
 
@@ -59,7 +59,7 @@ Open the refund-approval flow's run history and inspect a human-in-the-loop run 
 1. Review:
     - Which branch of the **If/Else** condition fired.
     - The **Start and wait for an approval** step and its outcome.
-    - Which **Update a row** action fired based on the outcome.
+    - Which **Update a row in selected environment** action fired based on the outcome.
     - The **Respond to the agent** outputs.
 
 ## Task 3 — Force a failure and inspect

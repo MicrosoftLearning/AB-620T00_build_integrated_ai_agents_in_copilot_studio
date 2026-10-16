@@ -82,12 +82,13 @@ Add a step that inserts a row in the **Returns** Dataverse table using the value
 
 1. Between the **When an agent calls the workflow** node and the **Respond to the agent** node, select the **+** to add a new step.
 
-1. Search for and select the **Microsoft Dataverse** connector, then select the **Add a new row** action.
+1. Search for and select the **Microsoft Dataverse** connector, then select the **Add a new row to selected environment** action.
 
 1. Configure the action:
 
     | Field | Value |
     |---|---|
+    | Environment | Select your environment from the dropdown. |
     | Table name | Returns |
     | Authorization number | An expression that generates a unique ID. Click into the field, switch to the **Expression** mode in the value picker, paste `concat('RA-', formatDateTime(utcNow(), 'yyyyMMddHHmmss'))` (just the expression — nothing else). At runtime this produces values like `RA-20260907143012`. |
     | Customer email | Dynamic content: `customerEmail` from the trigger. |
@@ -179,29 +180,6 @@ Test the flow end-to-end from the agent's **Preview** tab. The agent picks a too
 
 > [!NOTE]
 > The confirmation email is sent to whatever value the rep provides for `customerEmail`. For this test, use your own tenant email address so you can see the message arrive.
-
-> [!NOTE]
-> When testing from the agent's **Preview** tab, the Microsoft Dataverse **Add a new row** action might return a **401 Unauthorized** error.
->
-> If this error occurs:
->
-> 1. Remove **Add a new row** from the workflow.
-> 1. Add **Dataverse MCP Server** to the agent as a tool.
-> 1. In **When an agent calls the workflow**, add a required **Text** input named `authorizationNumber`.
-> 1. Update the agent instructions to:
->    - Generate an authorization number in the format **RA-yyyyMMddHHmmss**.
->    - Use **Dataverse MCP Server** to create the row in the **Returns** table.
->    - Pass the same authorization number to the **Create return authorization** workflow.
->
-> Configure the updated workflow as follows:
->
-> ```text
-> When an agent calls the workflow
-> └── Send an email
->     └── Respond to the agent
-> ```
->
-> In **Send an email**, use the `customerEmail`, `orderId`, `reason`, `condition`, and `authorizationNumber` trigger inputs. In **Respond to the agent**, return `authorizationNumber` as a **Text** output.
 
 1. Select the **Preview** tab.
 
