@@ -123,7 +123,7 @@ In the **Else** branch:
     | Field | Value |
     |---|---|
     | Environment | Select your environment from the dropdown. |
-    | Row ID | First row from **List rows**. |
+    | Row ID | Dynamic content: **item().Returns** |
     | Status | `Approved` |
     | Expected refund | Dynamic content: **requestedAmount**. |
     | Approved by | `auto-approved` (or leave blank — up to you). |

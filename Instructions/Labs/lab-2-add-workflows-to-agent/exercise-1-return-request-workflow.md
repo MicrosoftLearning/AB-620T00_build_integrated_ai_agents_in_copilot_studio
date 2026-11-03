@@ -100,6 +100,7 @@ Add a step that inserts a row in the **Returns** Dataverse table using the value
 
     > [!NOTE]
     > **Approved by** is left blank at this stage — a return is *authorized* here (Status = Authorized), then a *refund approval* fills in Approved by if a supervisor signs off. That's what the refund-approval flow in the next exercise does.
+    > If when you Publish this workflow you receive an error that says "Dataverse connector preview actions with environment parameter cannot yet connect outside of the current environment with connections provided by run-only users." or similar Change the action to "Add a new row". 
 
 ## Task 5 — Send the customer a confirmation email
 
