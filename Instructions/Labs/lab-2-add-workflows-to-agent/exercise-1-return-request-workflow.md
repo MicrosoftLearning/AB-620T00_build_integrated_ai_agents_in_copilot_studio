@@ -40,7 +40,7 @@ Create a new Copilot Studio workflow with an agent-callable trigger. The **When 
 
 1. In **Copilot Studio**, from the left navigation, select **Workflows** (also labeled **Flows** in some regions).
 
-1. On the **Workflows** page, select **Create your first workflow** (if this is your first) or **+ New workflow** → **Workflow**.
+1. On the **Workflows** page, select **Create your first workflow** (if this is your first) or **New workflow** → **Workflows**.
 
     The flow designer opens with a **Start** node.
 
@@ -71,8 +71,8 @@ Define the four trigger inputs the agent will supply when calling the flow. Each
     | `reason` | Text | The customer's stated reason for the return. |
     | `condition` | Text | Physical condition of the item — for example, "unopened", "opened", or "defective". |
 
-    > [!NOTE]
-    > The designer doesn't have a **Required** checkbox on inputs. Every input is required by default. To make one optional, select the **...** menu on the input and choose **Make optional**. Leave all four as required.
+> [!NOTE]
+> The designer doesn't have a **Required** checkbox on inputs. Every input is required by default. To make one optional, select the **...** menu on the input and choose **Make optional**. Leave all four as required.
 
 ## Task 4 — Add a step to create the Returns row
 
@@ -105,7 +105,7 @@ Add a step that inserts a row in the **Returns** Dataverse table using the value
 
 Add a step that emails the customer confirming the return authorization. This produces a real side effect the rep can point to when the customer asks whether the request went through.
 
-1. After the **Add a new row** action, select **+** to add another step.
+1. After the **Add a new row to selected environment** action, select **+** to add another step.
 
 1. Search for and select the **Office 365 Outlook** connector, then select the **Send an email** action.
 
@@ -117,8 +117,8 @@ Add a step that emails the customer confirming the return authorization. This pr
     | Field | Value |
     |---|---|
     | To | Dynamic content: `customerEmail` from the trigger. |
-    | Subject | Type `Return authorized: ` then insert dynamic content **Authorization number** from the previous **Add a new row** step's outputs. |
-    | Body | A short confirmation referencing the authorization number, order ID, and reason from the **Add a new row** step's outputs. Keep the language neutral so it works for any brand. Use dynamic content for the three values. |
+    | Subject | Type `Return authorized: ` then insert dynamic content **Authorization number** from the previous **Add a new row to selected environment** step's outputs. |
+    | Body | A short confirmation referencing the authorization number, order ID, and reason from the **Add a new row to selected environment** step's outputs. Keep the language neutral so it works for any brand. Use dynamic content for the three values. |
 
 ## Task 6 — Fill in the outputs to return to the agent
 
@@ -130,11 +130,11 @@ Fill in the two typed outputs the flow returns to the agent — the authorizatio
 
     | Name | Type | Value |
     |---|---|---|
-    | `authorizationNumber` | Text | Dynamic content: **Authorization number** from the **Add a new row** step. |
-    | `expectedRefund` | Number | Dynamic content: **Expected refund** from the **Add a new row** step. (This is `0` for now; you'll enrich it from a live Orders lookup in a later exercise.) |
+    | `authorizationNumber` | Text | Dynamic content: **Authorization number** from the **Add a new row to selected environment** step. |
+    | `expectedRefund` | Number | Dynamic content: **Expected refund** from the **Add a new row to selected environment** step. (This is `0` for now; you'll enrich it from a live Orders lookup in a later exercise.) |
 
-    > [!NOTE]
-    > The values above use the flow designer's **dynamic content** picker to reference outputs from earlier steps. If you edit the flow in the code view, you'll see expressions like `outputs('Add_a_new_row')?['body/sup_authorizationnumber']` — that's the underlying reference syntax. The picker builds these for you.
+> [!NOTE]
+> The values above use the flow designer's **dynamic content** picker to reference outputs from earlier steps. If you edit the flow in the code view, you'll see expressions like `outputs('Add_a_new_row')?['body/sup_authorizationnumber']` — that's the underlying reference syntax. The picker builds these for you.
 
 ## Task 7 — Publish the flow
 
@@ -143,6 +143,9 @@ Publish the flow so the agent can call it. An unpublished flow doesn't appear in
 1. Select the **Save** icon to save the flow.
 
 1. Select **Publish** at the top of the designer.
+
+   > [!NOTE]
+   > If you get the error **Can't publish your workflow**, replace the **Add a new row to selected environment** action with **Add a new row**, configure it with the same table (**Returns**) and row values, and then publish the workflow again.
 
 1. Wait for the confirmation. Return to the **Workflows** list and confirm **Create return authorization** shows status **Published**.
 
@@ -161,15 +164,15 @@ Attach the published flow to the agent as a tool. Attaching is what turns a stan
    > [!NOTE]
    > If it doesn't appear, confirm the flow is published (Task 7) and that the trigger and response action are the **When an agent calls the workflow** trigger and **Respond to the agent** action. See [Add a workflow as a tool to an agent](https://learn.microsoft.com/microsoft-copilot-studio/workflows-experience/flow-agent) at `https://learn.microsoft.com/microsoft-copilot-studio/workflows-experience/flow-agent`.
 
-1. Select the flow.
+1. Select the flow to add it to the agent.
 
-1. Add the following description:
+1. In the **Tools** section of the components panel, select the flow you just added, and then add the following description:
 
     ```text
     Creates a return authorization for a customer's order, sends a confirmation email, and returns the authorization number to the agent. Call this when the rep asks to initiate a return.
     ```
-
-1. Select the flow you just added. In the workflow details panel, review the display name, description (it may appear as Description for AI in some environments), and the four input parameters. Confirm each maps to the trigger inputs you defined. Select **Save**.
+    
+1. In the **Workflow details** panel, review the display name, description (it may appear as **Description for Intelligence** in some environments), and the four input parameters. Confirm each maps to the trigger inputs you defined. Select **Save**.
 
 ## Task 9 — Test in Preview
 
