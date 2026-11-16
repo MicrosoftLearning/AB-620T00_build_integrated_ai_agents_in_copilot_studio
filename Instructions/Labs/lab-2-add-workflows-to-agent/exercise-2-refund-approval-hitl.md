@@ -192,7 +192,7 @@ Save, publish, and attach the flow to the agent — the same publish-then-attach
 
 1. In **Agents**, open **Customer Support Rep Assistant**.
 
-1. On the **Build** tab, select **+** next to **Tools** → **Workflows** → **Approve refund request**.
+1. On the agent's **Build** tab, locate **Tools** and select the **+** button next to it. Select **Workflows**, then select the published **Approve refund request** workflow.
 
 1. Select the workflow and confirm the input parameters are correct.
 
