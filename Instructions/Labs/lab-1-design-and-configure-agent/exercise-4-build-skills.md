@@ -39,7 +39,7 @@ Author a skill directly in Copilot Studio to enable your agent to triage a custo
 
 1. On the agent's **Build** tab, in the components panel, select **Skills**.
 
-1. In **Add skill**, select **Create from blank**.
+1. Select **Create from blank**.
 
 1. Fill in the following values:
 
@@ -83,13 +83,11 @@ Author a skill directly in Copilot Studio to enable your agent to triage a custo
 
 Add the second skill by uploading a pre-built `SKILL.md` file. Uploading lets you reuse skills that have already been authored and version-controlled outside Copilot Studio.
 
-1. Select the **Skills** section of the components panel. In the **Add skill** dialog, select **Upload a skill**.
+1. Select the **Skills** section of the components panel, and then select **Upload a skill**.
 
 1. Drag and drop the [`faq-lookup.SKILL.md`](assets/faq-lookup.SKILL.md) file you downloaded earlier onto the upload area (or select the area to browse to the file).
 
 1. Confirm **faq-lookup** appears in the **Skills** list alongside **product-troubleshooting**.
-
-1. Select **Save**.
 
 ## Task 3 — Test both skills in Preview
 

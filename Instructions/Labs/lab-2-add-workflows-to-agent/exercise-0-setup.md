@@ -65,7 +65,7 @@ Import the separate **AB-620 Additive Components** solution into the environment
 
 1. In **Solutions**, confirm **AB-620 Additive Components** is present. It provides the four tables in a separate solution; it does not replace **Customer Support Rep Assistant**.
 
-1. Open **Customer Support Rep Assistant**, select **+ Add existing** > **Table**, and select **Returns**, **Orders**, **Customer Records**, and **Products**. Select **Next**, choose **Include all objects** for these new tables, and select **Add**. Confirm the tables appear in your agent solution. Their columns use the `sup` publisher prefix.
+1. Open **Customer Support Rep Assistant**, select **Objects**, select **+ Add existing** > **Table**, and select **Returns**, **Orders**, **Customer Records**, and **Products**. Select **Next**, choose **Include all objects** for these new tables, and select **Add**. Confirm the tables appear in your agent solution. Their columns use the `sup` publisher prefix.
 
 1. Set **Customer Support Rep Assistant** as your preferred solution if it isn't already. On the **Solutions** page, open the solution's ellipsis (**...**) menu and select **Set preferred solution**.
 
