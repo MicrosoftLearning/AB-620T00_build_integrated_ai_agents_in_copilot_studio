@@ -61,13 +61,12 @@ Define the three trigger inputs the agent supplies at call time — the authoriz
 
 Before you update anything, look up the Returns row by authorization number so later steps have the row ID to update.
 
-1. Add a **Microsoft Dataverse → List rows from selected environment** action after the **When an agent calls the workflow** node.
+1. Add a **Microsoft Dataverse → List rows** action after the **When an agent calls the workflow** node.
 
-1. On the **List rows from selected environment** action, configure:
+1. On the **List rows** action, configure:
 
     | Field | Value |
     |---|---|
-    | Environment | Select your environment from the dropdown. |
     | Table name | Returns |
     | Filter rows | `sup_authorizationnumber eq '` then dynamic content **authorizationNumber** then `'`. (Use the expression editor if the filter builder doesn't accept mixed content.) |
     | Row count | `1` |
@@ -76,7 +75,7 @@ Before you update anything, look up the Returns row by authorization number so l
 
 Add a Condition action that branches on the requested refund amount. Refunds up to $100 auto-approve; above $100 route to a supervisor.
 
-1. Add an **If/Else** condition action after **List rows from selected environment**.
+1. Add an **If/Else** condition action after **List rows**.
 
 1. Configure the condition with **requestedAmount** (dynamic content) as the **Property**, **Greater** as the **Operator**, and `100` as the **Value**.
 
@@ -88,7 +87,7 @@ Configure the above-threshold branch. When the requested amount exceeds the thre
 
 In the **If** branch:
 
-1. Add an **Approvals → Start and wait for an approval** action.
+1. Add an **Standard Approvals → Start and wait for an approval** action.
 
 1. In the **Start and wait for an approval** action, add a connection, and then configure:
 
@@ -102,13 +101,44 @@ In the **If** branch:
     > [!NOTE]
     > Approvals uses Microsoft Teams by default and falls back to email when the assignee doesn't have Teams. If you don't have a second user available for testing, use your own email as the supervisor address and approve your own request.
 
-1. After the approval action, add a **Switch** on the approval's **Outcome** output. In the **On** field, select **Outcome** from the Start and wait for an approval action, then configure:
+1. After the approval action, add a **Switch** on the approval's **Outcome** output. In the **On** field, select **Outcome** from the **Start and wait for an approval** action.
 
-    - **Approve** → **Update a row in selected environment** (Microsoft Dataverse) with `Status = Approved`, `Expected refund = requestedAmount`, `Approved by = supervisorEmail`.
-    - **Reject** → **Update a row in selected environment** (Microsoft Dataverse) with `Status = Rejected`, `Expected refund = 0`.
-    - **Default** (timeout or other outcome) → **Update a row in selected environment** (Microsoft Dataverse) with `Status = Escalated`.
+1. Add two cases and enter the **Case name** and **Value to match** for each:
 
-    In each case, use a **Microsoft Dataverse → Update a row in selected environment** action targeting the **Returns** table, with **Row ID** set to the first row's ID from the **List rows from selected environment** step.
+    | Case name | Value to match |
+    |---|---|
+    | Approve | `Approve` |
+    | Reject | `Reject` |
+
+    Configure each **Switch** case to update the return record in Dataverse. For each case, select the **+** after the case, select **Connector → Microsoft Dataverse → Update a row**, and configure these common settings:
+
+    | Field | Value |
+    |---|---|
+    | Table name | Returns |
+    | Row ID | Switch to **Expression** mode and paste `first(body('List_rows')?['value'])?['sup_returnsid']` |
+
+    Then set the columns for each case:
+
+    **Approve** case (**Update a row**):
+
+    | Column | Value |
+    |---|---|
+    | Status | Approved |
+    | Expected refund | `requestedAmount` (select it from the dynamic content list) |
+    | Approved by | `supervisorEmail` (select it from the dynamic content list) |
+
+    **Reject** case (**Update a row**):
+
+    | Column | Value |
+    |---|---|
+    | Status | Rejected |
+    | Expected refund | `0` |
+
+    **Default** case (**Update a row**), which runs on a timeout or any other outcome:
+
+    | Column | Value |
+    |---|---|
+    | Status | Escalated |
 
 ## Task 6 — Below-threshold branch: auto-approve
 
@@ -116,14 +146,13 @@ Configure the below-threshold branch. When the requested amount is at or below t
 
 In the **Else** branch:
 
-1. Add a **Microsoft Dataverse → Update a row in selected environment** action targeting the **Returns** table.
+1. Select **Connector → Microsoft Dataverse → Update a row** to add an action targeting the **Returns** table.
 
 1. Configure:
 
     | Field | Value |
     |---|---|
-    | Environment | Select your environment from the dropdown. |
-    | Row ID | First row from **List rows**. |
+    | Row ID | Select the field, switch to **Expression** mode in the value picker, and paste `first(body('List_rows')?['value'])?['sup_returnsid']` |
     | Status | `Approved` |
     | Expected refund | Dynamic content: **requestedAmount**. |
     | Approved by | `auto-approved` (or leave blank — up to you). |
@@ -136,12 +165,20 @@ Return typed outputs to the agent so it can summarize the outcome back to the re
 
 1. At the end of each **Switch** case and at the end of the **Else** branch, add a **Respond to the agent** action.
 
-1. In each **Respond to the agent** action, add the following outputs:
+1. In each **Respond to the agent** action in the **Switch** cases, add the following outputs:
 
     | Name | Type | Value |
     |---|---|---|
     | `outcome` | Text | `Approved`, `Rejected`, or `Escalated` as a fixed value in each branch. |
-    | `finalRefundAmount` | Number | `requestedAmount` on the approve and auto-approve branches, `0` on the reject and default branches. |
+    | `finalRefundAmount` | Number | `requestedAmount` on the approve branch, `0` on the reject and default branches. |
+    | `notes` | Text | A short human-readable summary the agent can echo. |
+
+    In the **Respond to the agent** action in the **Else** branch, which auto-approves refunds that don't exceed $100, configure the outputs as follows:
+
+    | Name | Type | Value |
+    |---|---|---|
+    | `outcome` | Text | `Approved` as a fixed value in the branch. |
+    | `finalRefundAmount` | Number | `requestedAmount` on the auto-approve branch. |
     | `notes` | Text | A short human-readable summary the agent can echo. |
 
     > [!NOTE]
@@ -155,7 +192,7 @@ Save, publish, and attach the flow to the agent — the same publish-then-attach
 
 1. In **Agents**, open **Customer Support Rep Assistant**.
 
-1. On the **Build** tab, select **+** next to **Tools** → **Workflows** → **Approve refund request**.
+1. On the agent's **Build** tab, locate **Tools** and select the **+** button next to it. Select **Workflows**, then select the published **Approve refund request** workflow.
 
 1. Select the workflow and confirm the input parameters are correct.
 

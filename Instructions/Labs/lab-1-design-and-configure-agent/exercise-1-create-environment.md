@@ -60,7 +60,7 @@ Create the environment that will host your agent and its Dataverse data. Choosin
     |---|---|
     | Language | **English (United States)** |
     | Currency | **USD ($)** |
-    | Deploy sample apps and data | **No** |
+    | Deploy sample apps and data? | **No** |
 
 1. Select **Save** and wait for the environment state to reach **Ready**. Use the **Refresh** button on the command bar to update the status.
 
